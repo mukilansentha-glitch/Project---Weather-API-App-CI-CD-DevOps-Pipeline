@@ -1,0 +1,78 @@
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+body{font-family:'Outfit',sans-serif;min-height:100vh;background:#0a0a1a;overflow-x:hidden}
+
+.sky-bg{position:fixed;inset:0;z-index:0;background:linear-gradient(180deg,#1a2a50 0%,#2d4a8a 50%,#3a5fa0 100%);transition:background 1.5s ease}
+.stars{position:fixed;inset:0;z-index:1;pointer-events:none;overflow:hidden}
+.star{position:absolute;background:#fff;border-radius:50%;animation:twinkle 3s infinite alternate}
+@keyframes twinkle{from{opacity:.2}to{opacity:1}}
+
+.sun{position:fixed;z-index:2;pointer-events:none;width:120px;height:120px;border-radius:50%;top:60px;right:100px;transition:all 1.5s ease}
+.sun-glow{position:absolute;inset:-30px;border-radius:50%;background:radial-gradient(circle,rgba(255,220,50,.3),transparent 70%);animation:pulse-glow 3s ease-in-out infinite}
+@keyframes pulse-glow{0%,100%{transform:scale(1);opacity:.5}50%{transform:scale(1.15);opacity:.8}}
+
+.cloud-layer{position:fixed;width:100%;height:200px;top:0;left:0;z-index:2;pointer-events:none}
+.cloud{position:absolute;border-radius:50px;animation:drift linear infinite;opacity:0;transition:opacity 1s}
+@keyframes drift{from{transform:translateX(-300px)}to{transform:translateX(110vw)}}
+
+.rain-layer{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.raindrop{position:absolute;width:1.5px;border-radius:2px;animation:fall linear infinite;opacity:0;transition:opacity .5s}
+@keyframes fall{from{transform:translateY(-20px)}to{transform:translateY(110vh)}}
+
+.snow-layer{position:fixed;inset:0;z-index:3;pointer-events:none;overflow:hidden}
+.snowflake{position:absolute;color:#fff;user-select:none;animation:snowfall linear infinite;opacity:0;transition:opacity .5s}
+@keyframes snowfall{from{transform:translateY(-20px) rotate(0deg)}to{transform:translateY(110vh) rotate(360deg)}}
+
+.lightning{position:fixed;inset:0;pointer-events:none;z-index:4}
+.lightning.strike{animation:lflash .1s ease-out}
+@keyframes lflash{0%{background:rgba(255,255,255,0)}50%{background:rgba(220,220,255,.4)}100%{background:rgba(255,255,255,0)}}
+
+.app-container{position:relative;z-index:10;padding:24px 16px 60px;max-width:960px;margin:0 auto}
+
+.header{text-align:center;margin-bottom:28px}
+.header h1{font-size:28px;font-weight:700;color:#fff;letter-spacing:-.5px;text-shadow:0 2px 20px rgba(0,0,0,.5)}
+.header p{font-size:13px;color:rgba(255,255,255,.6);margin-top:4px}
+
+.search-bar{display:flex;gap:8px;margin-bottom:24px;flex-wrap:wrap}
+.search-input{flex:1;min-width:200px;padding:12px 18px;border-radius:16px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);backdrop-filter:blur(20px);color:#fff;font-family:'Outfit',sans-serif;font-size:15px;outline:none;transition:border .2s}
+.search-input::placeholder{color:rgba(255,255,255,.45)}
+.search-input:focus{border-color:rgba(255,255,255,.5)}
+.filter-select{padding:12px 14px;border-radius:16px;border:1.5px solid rgba(255,255,255,.2);background:rgba(255,255,255,.1);backdrop-filter:blur(20px);color:#fff;font-family:'Outfit',sans-serif;font-size:14px;outline:none;cursor:pointer}
+.filter-select option{background:#1a1a3e;color:#fff}
+.temp-unit-toggle{display:flex;gap:6px}
+.unit-btn{padding:8px 16px;border-radius:12px;border:1px solid rgba(255,255,255,.2);background:rgba(255,255,255,.08);color:rgba(255,255,255,.7);font-family:'Outfit',sans-serif;font-size:14px;font-weight:500;cursor:pointer;transition:all .2s}
+.unit-btn.active{background:rgba(255,255,255,.25);color:#fff;border-color:rgba(255,255,255,.4)}
+
+.selected-banner{display:none;border-radius:20px;padding:24px;margin-bottom:24px;border:1px solid rgba(255,255,255,.2);backdrop-filter:blur(30px);background:linear-gradient(135deg,rgba(255,255,255,.12),rgba(255,255,255,.05));animation:banner-in .4s ease}
+@keyframes banner-in{from{opacity:0;transform:scale(.97)}to{opacity:1;transform:scale(1)}}
+.banner-inner{display:flex;align-items:center;gap:24px;flex-wrap:wrap}
+.banner-icon{font-size:72px;line-height:1;animation:icon-float 4s ease-in-out infinite}
+.banner-temp{font-size:56px;font-weight:700;color:#fff;letter-spacing:-2px}
+.banner-name{font-size:22px;font-weight:600;color:#fff}
+.banner-desc{font-size:15px;color:rgba(255,255,255,.7);margin-top:2px}
+.banner-stats{display:flex;gap:12px;margin-top:16px;flex-wrap:wrap}
+.banner-stat{background:rgba(255,255,255,.1);border-radius:12px;padding:8px 14px;font-size:13px;color:#fff}
+.banner-stat-label{font-size:10px;color:rgba(255,255,255,.55);text-transform:uppercase;letter-spacing:.5px}
+
+.top-bar{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;flex-wrap:wrap;gap:10px}
+.section-label{font-size:11px;font-weight:600;color:rgba(255,255,255,.45);letter-spacing:1.5px;text-transform:uppercase}
+.count-badge{font-size:12px;color:rgba(255,255,255,.5);background:rgba(255,255,255,.08);padding:4px 10px;border-radius:8px}
+
+.city-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:16px}
+.city-card{border-radius:24px;padding:20px;border:1px solid rgba(255,255,255,.15);backdrop-filter:blur(24px);cursor:pointer;transition:transform .25s,box-shadow .25s;animation:card-in .4s ease both;overflow:hidden}
+@keyframes card-in{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+.city-card:hover{transform:translateY(-4px) scale(1.02);box-shadow:0 20px 60px rgba(0,0,0,.4)}
+.city-card.active{border-color:rgba(255,255,255,.5);box-shadow:0 0 0 2px rgba(255,255,255,.3),0 20px 60px rgba(0,0,0,.4)}
+
+.card-top{display:flex;justify-content:space-between;align-items:flex-start;margin-bottom:12px}
+.city-name{font-size:16px;font-weight:600;color:#fff;line-height:1.2}
+.city-country{font-size:11px;color:rgba(255,255,255,.55);margin-top:2px;text-transform:uppercase;letter-spacing:.5px}
+.weather-icon-3d{font-size:40px;line-height:1;animation:icon-float 4s ease-in-out infinite}
+@keyframes icon-float{0%,100%{transform:translateY(0)}50%{transform:translateY(-6px)}}
+.temp-display{font-size:42px;font-weight:700;color:#fff;letter-spacing:-1px;line-height:1}
+.weather-desc{font-size:13px;color:rgba(255,255,255,.75);margin-top:4px;text-transform:capitalize}
+.card-footer{display:flex;gap:12px;margin-top:14px;padding-top:12px;border-top:1px solid rgba(255,255,255,.12)}
+.stat-item{display:flex;align-items:center;gap:4px;font-size:12px;color:rgba(255,255,255,.65)}
+
+.loading-placeholder{text-align:center;padding:48px;color:rgba(255,255,255,.5);font-size:15px;animation:pulse-op 1.5s ease-in-out infinite}
+@keyframes pulse-op{0%,100%{opacity:.4}50%{opacity:1}}
+.error-msg{display:none;background:rgba(220,50,50,.2);border:1px solid rgba(220,50,50,.3);border-radius:14px;padding:12px 16px;color:rgba(255,180,180,.9);font-size:13px;margin-bottom:16px}
