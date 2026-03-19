@@ -13,6 +13,9 @@ COPY static/    ./static/
 COPY templates/ ./templates/
 COPY run.py     .
 
+# ✅ ONLY THIS LINE WAS ADDED
+ENV OPENWEATHER_API_KEY=36f5dba22eb0aa6ff94077a692163d36
+
 RUN adduser --disabled-password --gecos '' appuser && chown -R appuser /app
 USER appuser
 
