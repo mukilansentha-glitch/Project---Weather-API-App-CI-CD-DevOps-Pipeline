@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>World Weather App</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com"/>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="/static/css/style.css"/>
+</head>
+<body>
+
+  <div class="sky-bg"      id="skyBg"></div>
+  <div class="stars"       id="stars"></div>
+  <div class="sun"         id="sun"></div>
+  <div class="cloud-layer" id="cloudLayer"></div>
+  <div class="rain-layer"  id="rainLayer"></div>
+  <div class="snow-layer"  id="snowLayer"></div>
+  <div class="lightning"   id="lightning"></div>
+
+  <div class="app-container">
+
+    <div class="header">
+      <h1>🌍 World Weather</h1>
+      <p>Live data powered by OpenWeatherMap</p>
+    </div>
+
+    <div class="search-bar">
+      <input class="search-input" id="searchInput" type="text" placeholder="Search cities or countries..."/>
+      <select class="filter-select" id="regionFilter">
+        <option value="all">All Regions</option>
+        <option value="india">India</option>
+        <option value="asia">Asia</option>
+        <option value="europe">Europe</option>
+        <option value="americas">Americas</option>
+        <option value="africa">Africa</option>
+        <option value="oceania">Oceania</option>
+      </select>
+      <div class="temp-unit-toggle">
+        <button class="unit-btn active" id="btnC" onclick="setUnit('C')">°C</button>
+        <button class="unit-btn"        id="btnF" onclick="setUnit('F')">°F</button>
+      </div>
+    </div>
+
+    <div class="selected-banner" id="selectedBanner">
+      <div class="banner-inner">
+        <span class="banner-icon" id="bannerIcon"></span>
+        <div>
+          <div class="banner-name"  id="bannerName"></div>
+          <div class="banner-desc"  id="bannerDesc"></div>
+          <div class="banner-stats" id="bannerStats"></div>
+        </div>
+        <div class="banner-temp" id="bannerTemp"></div>
+      </div>
+    </div>
+
+    <div class="top-bar">
+      <div class="section-label">Cities</div>
+      <div class="count-badge" id="countBadge">Loading...</div>
+    </div>
+
+    <div id="loadingMsg" class="loading-placeholder">⏳ Fetching live weather data...</div>
+    <div id="errorMsg"   class="error-msg"></div>
+    <div class="city-grid" id="cityGrid"></div>
+
+  </div>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>
