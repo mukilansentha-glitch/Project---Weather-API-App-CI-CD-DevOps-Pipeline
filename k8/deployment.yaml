@@ -1,0 +1,19 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: weather-api-app
+spec:
+  replicas: 2
+  selector:
+    matchLabels:
+      app: weather
+  template:
+    metadata:
+      labels:
+        app: weather
+    spec:
+      containers:
+        - name: weather-api
+          image: 958006149889.dkr.ecr.ap-south-1.amazonaws.com/weatherapp
+          ports:
+            - containerPort: 5000
