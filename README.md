@@ -86,6 +86,10 @@ Weather app results
 <img width="1920" height="1080" alt="weather app working" src="https://github.com/user-attachments/assets/cda3f852-b39b-4b01-9fac-17ac66372f55" />
 <img width="1920" height="1080" alt="weather app dashboard" src="https://github.com/user-attachments/assets/b008b667-7ac2-46bf-b0a6-9c8befa6ee97" />
 
+Project Structure
+
+<img width="733" height="896" alt="Screenshot 2026-03-23 160812" src="https://github.com/user-attachments/assets/7d2e693d-b683-4f2d-9d4c-3880159a9dc8" />
+
 CI CD Pipeline
 <img width="1920" height="1080" alt="Successfull pipeline" src="https://github.com/user-attachments/assets/ac7c5231-a9ac-447c-a896-0fa48920ab9c" />
 
