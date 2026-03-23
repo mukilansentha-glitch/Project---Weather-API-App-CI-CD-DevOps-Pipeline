@@ -1,9 +1,12 @@
-**Weather API App - DevOps CI/CD Pipeline Project**
 
-**Project Overview**
-  The Weather API App is a cloud-native application deployed on AWS using a complete DevOps CI/CD pipeline. This project demonstrates automated build, security scanning, quality checks, containerization, and deployment to Kubernetes (EKS), along with monitoring and notifications.
+# Weather API App - DevOps CI/CD Pipeline Project
 
-**Tooles used **
+Project Overview
+
+The Weather API App is a cloud-native application deployed on AWS using a complete DevOps CI/CD pipeline. This project demonstrates automated build, security scanning, quality checks, containerization, and deployment to Kubernetes (EKS), along with monitoring and notifications.
+
+Tooles used
+
 Version Control:     Git
 CI/CD Tool:          Jenkins
 Code Quality:        SonarQube
@@ -14,7 +17,8 @@ Orchestration:       AWS EKS (Kubernetes)
 Monitoring:          Prometheus & Grafana
 Notifications:       Email (Jenkins configured)
 
-**CI/CD Pipeline Workflow**
+CI/CD Pipeline Workflow
+
 Code Commit
 Developer pushes code to Git repository.
 Jenkins Pipeline Triggered
@@ -46,3 +50,4 @@ Build failure
 Architecture Overview
 
 Git → Jenkins → SonarQube → Trivy → Docker Build → Trivy Scan → AWS ECR → AWS EKS → Prometheus → Grafana
+
